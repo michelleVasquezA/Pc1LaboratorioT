@@ -1,0 +1,33 @@
+version: 0.2
+
+phases:
+
+  install:
+
+    runtime-versions:
+
+      dotnet: 6.0
+
+  pre_build:
+
+    commands:
+
+      - dotnet restore Pc1Laboratorio.csproj
+
+  build:
+
+    commands:
+
+      - dotnet build Pc1Laboratorio.csproj
+
+  post_build:
+
+    commands:
+
+      - dotnet publish -c Release -o ./app/ Pc1Laboratorio.csproj
+
+artifacts:
+
+  files:
+
+    - '**/*'
